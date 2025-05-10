@@ -14,5 +14,4 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     })
 })
-
 /*Altere o ID caso for preciso!!!*/
