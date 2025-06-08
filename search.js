@@ -1,17 +1,23 @@
 /*Codigo de pesquisa por divs*/
+export function searchBar(){
 document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("search-input");
-    const allFolders = document.querySelectorAll(".folder");
+    const allSearch = document.querySelectorAll(".search, .search-result, .folder");
+
+    if(!searchInput){
+        console.warn('[searchBar] Cammpo de input com "search-input" não encontrado.');
+        return;
+    }
 
     searchInput.addEventListener("input", () => {
         const searchTerm = searchInput.value.toLowerCase();
 
-        allFolders.forEach(folder => {
-            const folderText = folder.querySelector("p").textContent.toLowerCase();
-            const matches = folderText.includes(searchTerm);
+        allSearch.forEach(search => {
+            const searchText = search.querySelector("p")?.textContent.toLowerCase();
+            const matches = searchText.includes(searchTerm);
 
-            folder.style.display = matches ? "flex" : "none"
+            search.style.display = matches ? "flex" : "none"
         })
     })
 })
-/*Altere o ID caso for preciso!!!*/
+}
